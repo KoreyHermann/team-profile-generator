@@ -1,4 +1,4 @@
-const generateHTML = require('src\generateHTML.js');
+const generateHTML = require('./src/generateHTML.js');
 const manager = require('lib\manager.js');
 const engineer = require('lib\engineer.js');
 const intern = require('lib\intern.js');
@@ -124,3 +124,5 @@ generateManager()
   .catch(err => {
  console.log(err);
   });
+
+  runQuery()
