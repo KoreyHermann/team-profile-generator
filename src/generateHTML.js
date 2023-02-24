@@ -1,3 +1,4 @@
+//manager html card
 const generateManager = function (manager) {
     return`
     <div class="flex justify-center">
@@ -24,6 +25,7 @@ const generateManager = function (manager) {
     `;
 }
 
+//engineer html card
 const generateEngineer = function (engineer) {
     return`
     <div class="flex justify-center">
@@ -50,6 +52,7 @@ const generateEngineer = function (engineer) {
     `;
 }
 
+//intern html card
 const generateIntern = function (manager) {
     return`
     <div class="flex justify-center">
@@ -115,7 +118,7 @@ generateHTML = (data) => {
 
 
 
-// creates HTML page
+// creates team profile page
 const generateHTML = function (employeeProfiles){
     return`
     <!DOCTYPE html>

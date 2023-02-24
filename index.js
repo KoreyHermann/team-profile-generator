@@ -1,11 +1,12 @@
 const generateHTML = require('./src/generateHTML.js');
-const manager = require('lib\manager.js');
-const engineer = require('lib\engineer.js');
-const intern = require('lib\intern.js');
+const manager = require('./lib/manager.js');
+const engineer = require('./lib/engineer.js');
+const intern = require('./lib/intern.js');
 const fs = require('fs');
 const inquirer = require('inquirer');
 const empArray =[];
 
+//manager prompts
 const generateManager = () => {
     return inquirer.prompt ([
         {
@@ -36,6 +37,7 @@ const generateManager = () => {
     })
 };
 
+// employee/engineer/intern prompts
 const generateEmployee = () => {
 return inquirer.prompt ([
     {
@@ -76,6 +78,8 @@ return inquirer.prompt ([
         default: false
     }
 ])
+
+// adds employees to array based on role
 .then(employeeData => {
 
     let { name, id, email, role, github, school, confirmAddEmployee } = employeeData; 
@@ -95,13 +99,14 @@ return inquirer.prompt ([
     empArray.push(employee); 
 
     if (confirmAddEmployee) {
-        return addEmployee(empArray); 
+        return generateEmployee(empArray); 
     } else {
         return empArray;
     }
 })
 };
 
+// writes file to html generator
 const writeFile = data => {
     fs.writeFile('dist\index.html', data, err => {
         if (err) {
@@ -124,5 +129,3 @@ generateManager()
   .catch(err => {
  console.log(err);
   });
-
-  runQuery()
